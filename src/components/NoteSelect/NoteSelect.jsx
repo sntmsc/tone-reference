@@ -13,15 +13,19 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
   
   const WaveText = ({char, name, waveState, size}) =>{
     return(
-      <Text
-      userSelect='none'
-      cursor='pointer'
-      fontSize= {size}
-      m='0'
+      <Flex
+      p='.5em'
       onClick={()=>setWave(name)}
-      color={name === waveState ? 'purple' : 'white'}>
-        {char}
-      </Text>
+      cursor='pointer'>
+        <Text
+        cursor='pointer'
+        userSelect='none'
+        fontSize= {size}
+        m='0'
+        color={name === waveState ? 'purple' : 'white'}>
+          {char}
+        </Text>
+      </Flex>
     )
   }
 
@@ -46,7 +50,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
         className='tap-mobile'
         color='white'
         cursor='pointer'
-        fontSize='4em'
+        fontSize='3em'
         my={0}
         mr='.2em'
         onClick={()=>{setNote(objNote);osc.toDestination().stop();}}>
