@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Flex, Text } from '@chakra-ui/react'
+import { Flex, Text, useMediaQuery} from '@chakra-ui/react'
 import AudioButton from './AudioButton';
 import * as Tone from 'tone'
 import './NoteSelect.css'
@@ -7,6 +7,8 @@ import './NoteSelect.css'
 const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
   const [wave, setWave] = useState('triangle');
   const [osc, setOsc] = useState(()=>new Tone.Oscillator(fq,wave));
+
+  const [mh650, mw800] = useMediaQuery(['(max-height: 650px)', '(min-width: 800px)']);
 
   osc.frequency.value = fq;
   osc.type = wave;
@@ -34,7 +36,8 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
         <Flex
         justify='center'
         align='center'
-        gap='20px'>
+        gap='20px'
+        mb={mw800 ? '5em' : 0}>
           <WaveText waveState={wave} name={'sine'} char={'∿'} size={'3.2em'}/>
           <WaveText waveState={wave} name={'square'} char={'⊓'} size={'2.5em'}/>
           <WaveText waveState={wave} name={'triangle'} char={'ᐱ'} size={'2.2em'}/>
@@ -58,7 +61,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
         </Text>
       </Flex>
         <Flex
-        direction='column'
+        direction={mh650 ? 'row-reverse' : 'column'}
         justify='center'
         align='center'
         my='1em'
@@ -67,7 +70,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
             className='tap-mobile'
             userSelect='none'
             color='white'
-            fontSize='3em'
+            fontSize={mh650? '2em' :'3em'}
             m='0'
             cursor='pointer'
             _active={{
@@ -88,7 +91,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
             className='tap-mobile'
             userSelect='none'
             color='white'
-            fontSize='3em'
+            fontSize={mh650? '2em' :'3em'}
             cursor='pointer'
             _active={{
               color:'blue'
@@ -98,6 +101,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
             </Text>
         </Flex>
         <Flex
+        mt={mw800 ? '5em' : '0'}
         justify='space-around'
         align='center'
         w='20em'
