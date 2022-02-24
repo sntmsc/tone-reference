@@ -55,11 +55,33 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
         </Text>
       </Flex>
         <Flex
+        direction='column'
         justify='center'
         align='center'
-        gap='40px'
-        my='5em'>
+        my='2em'
+        gap='2em'>
             <Text
+            className='tap-mobile'
+            userSelect='none'
+            color='white'
+            fontSize='3em'
+            m='0'
+            cursor='pointer'
+            _active={{
+              color:'red'
+            }}
+            onClick={()=>setFreq(fq*2)}>
+            +8th
+            </Text>
+            <Text
+            userSelect='none'
+            color='white'
+            m='0'
+            fontSize='10em'>
+            {nt}
+            </Text>
+            <Text
+            m='0'
             className='tap-mobile'
             userSelect='none'
             color='white'
@@ -71,31 +93,13 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
             onClick={()=>setFreq(fq/2)}>
             -8th
             </Text>
-            <Text
-            userSelect='none'
-            color='white'
-            fontSize='10em'
-            m='0'>
-            {nt}
-            </Text>
-            <Text
-            className='tap-mobile'
-            userSelect='none'
-            color='white'
-            fontSize='3em'
-            cursor='pointer'
-            _active={{
-              color:'red'
-            }}
-            onClick={()=>setFreq(fq*2)}>
-            +8th
-            </Text>
         </Flex>
         <Flex
         justify='space-around'
         align='center'
         w='20em'
-        fontFamily='2em'>
+        fontFamily='2em'
+        mt='2em'>
             <AudioButton char='▶' osc={osc}/>
             <AudioButton char='◼' osc={osc}/>
         </Flex>

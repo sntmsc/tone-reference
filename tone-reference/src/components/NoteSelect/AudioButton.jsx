@@ -41,6 +41,7 @@ import { motion } from 'framer-motion'
         fontSize='2em'
         color='white'
         border='1px solid white'
+        borderRadius='5px'
         mx='.5em'>
           <Text>
             {char}
