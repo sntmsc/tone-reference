@@ -65,7 +65,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
         justify='center'
         align='center'
         my='1em'
-        gap='2em'>
+        gap={mh650 ? '1em' : '2em'}>
             <Text
             className='tap-mobile'
             userSelect='none'
@@ -83,7 +83,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
             userSelect='none'
             color='white'
             m='0'
-            fontSize='10em'>
+            fontSize={mh650 ? '8em' : '10em'}>
             {nt}
             </Text>
             <Text
