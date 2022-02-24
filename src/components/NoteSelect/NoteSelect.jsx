@@ -18,7 +18,6 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
       cursor='pointer'
       fontSize= {size}
       m='0'
-      my='.5em'
       onClick={()=>setWave(name)}
       color={name === waveState ? 'purple' : 'white'}>
         {char}
@@ -58,7 +57,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
         direction='column'
         justify='center'
         align='center'
-        my='2em'
+        my='1em'
         gap='2em'>
             <Text
             className='tap-mobile'
@@ -98,8 +97,7 @@ const NoteSelect = ({nt, fq, setNote, objNote, setFreq}) =>{
         justify='space-around'
         align='center'
         w='20em'
-        fontFamily='2em'
-        mt='2em'>
+        fontFamily='2em'>
             <AudioButton char='▶' osc={osc}/>
             <AudioButton char='◼' osc={osc}/>
         </Flex>
